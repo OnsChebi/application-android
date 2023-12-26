@@ -2,7 +2,7 @@ package com.example.miniprojet;
 
 public class HelperClass {
 
-    String name, email, username, password;
+    String name, email, username, password,role;
 
     public String getName() {
         return name;
@@ -32,15 +32,23 @@ public class HelperClass {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String role) {
+        this.role = password;
+    }
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 //constructor with all arguments
-    public HelperClass(String name, String email, String username, String password) {
+    public HelperClass(String name, String email, String username, String password,String role) {
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 //constructor with no arguments
     public HelperClass() {

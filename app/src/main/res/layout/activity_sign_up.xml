@@ -78,6 +78,37 @@
         android:inputType="textPassword"
         android:padding="8dp"
         android:textColor="@color/black" />
+    <RadioGroup
+        android:id="@+id/role_radio_group"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/admin_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Admin"
+                android:textColor="@color/lilac"
+                android:textSize="18dp" />
+
+            <RadioButton
+                android:id="@+id/student_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/lilac"
+                android:checked="true"
+                android:text="Student"
+                android:textColor="@color/lilac"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </RadioGroup>
 
     <Button
         android:id="@+id/signup_button"
@@ -89,35 +120,34 @@
         android:textSize="18sp"
         app:cornerRadius="20dp" />
 
-    <LinearLayout
+   <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-            android:layout_marginLeft="50dp"
-            android:padding="8dp"
-            android:text="Already an user?"
-            android:textColor="@color/lilac"
-            android:textSize="18sp" />
+        android:layout_marginLeft="50dp"
+        android:padding="8dp"
+        android:text="Already an user?"
+        android:textColor="@color/lilac"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/loginRedirectText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:layout_marginTop="0dp"
-            android:padding="8dp"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+    <TextView
+        android:id="@+id/loginRedirectText"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="0dp"
+        android:padding="8dp"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
-    </LinearLayout>
-
+</LinearLayout>
 
 
 </LinearLayout>
