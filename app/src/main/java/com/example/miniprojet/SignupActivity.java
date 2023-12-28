@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -37,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
         signupButton = findViewById(R.id.signup_button);
         roleRadioGroup = findViewById(R.id.role_radio_group);
         adminRadioButton = findViewById(R.id.admin_button);
-        studentRadioButton = findViewById(R.id.student_button);
+        //studentRadioButton = findViewById(R.id.student_button);
 
 
         signupButton.setOnClickListener(view -> {
@@ -50,11 +51,13 @@ public class SignupActivity extends AppCompatActivity {
             String username = signupUsername.getText().toString();
             String password = signupPassword.getText().toString();
             int selectedRoleId = roleRadioGroup.getCheckedRadioButtonId();
-            String role = "Student"; // Default role
-            if (selectedRoleId == adminRadioButton.getId()) {
-                role = "Admin";
-            }
+            String role;
 
+            if (selectedRoleId == adminRadioButton.getId()) {
+                role = "admin";
+            } else  {
+                role = "Student";
+            }
 
             HelperClass helperClass = new HelperClass(name, email, username, password,role);
             reference.child(username).setValue(helperClass);

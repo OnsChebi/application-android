@@ -33,7 +33,7 @@ public class HelperClass {
     }
 
     public void setPassword(String role) {
-        this.role = password;
+        this.password = password;
     }
     public String getRole() {
         return role;

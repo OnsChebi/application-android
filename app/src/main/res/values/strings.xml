@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MiniProjet</string>
+   <string-array name="certifs">
+       <item>Cloud Foundry Certified Developer</item>
+       <item>Huawei HCNA</item>
+       <item>Certifies kubernetes Administrator bundle</item>
+       <item>Linux professional Institute</item>
+       <item>Linux Foundation certifies SysAdmin</item>
+       <item>Microsoft Linux on Azure</item>
+       <item>oracle certified associate</item>
+       <item>oracle certifies professional</item>
+       <item>Certified Entry Level python programmer</item>
+       <item>Certified associate in python programmer</item>
+       <item>Redhat certified System Administrator</item>
+   </string-array>
 </resources>

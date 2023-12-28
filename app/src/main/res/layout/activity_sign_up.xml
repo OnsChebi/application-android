@@ -103,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:buttonTint="@color/lilac"
-                android:checked="true"
                 android:text="Student"
                 android:textColor="@color/lilac"
                 android:textSize="18dp" />
