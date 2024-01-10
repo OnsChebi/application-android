@@ -17,10 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class LoginActivity extends AppCompatActivity {
 
+    // UI elements
     EditText loginUsername, loginPassword;
     Button loginButton;
     TextView signupRedirectText;
@@ -30,14 +29,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initializing UI elements
         loginUsername = findViewById(R.id.login_username);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signupRedirectText);
 
+        // Login button click listener
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Validate username and password before checking the user
                 if (!validateUsername() | !validatePassword()) {
 
                 } else {
@@ -46,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // Redirect to signup activity
         signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,9 +56,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
+    // Validate username
     public Boolean validateUsername() {
         String val = loginUsername.getText().toString();
         if (val.isEmpty()) {
@@ -67,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    // Validate password
     public Boolean validatePassword(){
         String val = loginPassword.getText().toString();
         if (val.isEmpty()) {
@@ -78,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
+    // Check user credentials in the Firebase Database
     public void checkUser(){
         String userUsername = loginUsername.getText().toString().trim();
         String userPassword = loginPassword.getText().toString().trim();
@@ -89,26 +93,24 @@ public class LoginActivity extends AppCompatActivity {
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 if (snapshot.exists()){
-
                     loginUsername.setError(null);
                     String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
 
                     if (passwordFromDB.equals(userPassword)) {
                         loginUsername.setError(null);
 
+                        // Retrieve user information from the database
                         String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                         String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
                         String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
 
+                        // Start the certifications activity with user information
                         Intent intent = new Intent(LoginActivity.this, certifications.class);
-
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("username", usernameFromDB);
                         intent.putExtra("password", passwordFromDB);
-
                         startActivity(intent);
                     } else {
                         loginPassword.setError("Invalid Credentials");

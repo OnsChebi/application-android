@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +24,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profil);
 
+        // Initializing UI elements
         profileName = findViewById(R.id.profileName);
         profileEmail = findViewById(R.id.profileEmail);
         profileUsername = findViewById(R.id.profileUsername);
@@ -34,24 +33,28 @@ public class UserProfile extends AppCompatActivity {
         titleUsername = findViewById(R.id.titleUsername);
         editProfile = findViewById(R.id.editButton);
 
-        showAllUserData();//pour afficher les données d'utilisateur qui ont passé de l'activité précédente
+        // Display user profile data
+        showAllUserData();
 
+        // Edit profile button click listener
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Navigate to EditProfileActivity
                 passUserData();
             }
         });
-
     }
 
-    public void showAllUserData(){// to retrieve user data passed from the previous activity via an intent
+    // Method to retrieve and display user data passed from the previous activity
+    public void showAllUserData() {
         Intent intent = getIntent();
         String nameUser = intent.getStringExtra("name");
         String emailUser = intent.getStringExtra("email");
         String usernameUser = intent.getStringExtra("username");
         String passwordUser = intent.getStringExtra("password");
-        //Sets this data to respective TextViews to display the user’s profile information on the screen
+
+        // Set user data to respective TextViews for display
         titleName.setText(nameUser);
         titleUsername.setText(usernameUser);
         profileName.setText(nameUser);
@@ -60,41 +63,35 @@ public class UserProfile extends AppCompatActivity {
         profilePassword.setText(passwordUser);
     }
 
-    public void passUserData(){
-        //we used trim to remove all the whitespaces when we retrieves the current user name
+    // Method to pass user data and navigate to EditProfileActivity
+    public void passUserData() {
         String userUsername = profileUsername.getText().toString().trim();
-        //ce ligne nous permet d'obtenir une référence au nœud “users” dans notre base de données Firebase
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        // creaction d'une requête pour trouver un utilisateur spécifique(current user)
         Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
-        //this listener waits for a single response from the database
+
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            // Cette méthode est appelée une fois avec les données à l’emplacement de la requête.
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.exists()){
-
+                if (snapshot.exists()) {
+                    // Retrieve user data from the database
                     String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                     String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
                     String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
                     String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
 
+                    // Pass user data to EditProfileActivity
                     Intent intent = new Intent(UserProfile.this, EditProfileActivity.class);
-
                     intent.putExtra("name", nameFromDB);
                     intent.putExtra("email", emailFromDB);
                     intent.putExtra("username", usernameFromDB);
                     intent.putExtra("password", passwordFromDB);
-
                     startActivity(intent);
-
                 }
             }
-            //Cette méthode sera appelée si la requête a été annulée
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle onCancelled event if needed
             }
         });
     }
