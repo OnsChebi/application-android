@@ -18,14 +18,16 @@
             android:layout_marginTop="-100dp"
             android:layout_marginBottom="50dp"
             app:srcCompat="@drawable/logo" />
-            <TextView
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textAlignment="center"
-                android:textColor="@color/lilac"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo_black"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="@color/lilac"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/login_username"

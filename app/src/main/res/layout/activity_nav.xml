@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navbg"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".nav">
+
+    <TextView
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo_black"
+        android:text="Welcome"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:translationY="-80dp" />
+
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/lightblue"
+        android:drawableLeft="@drawable/baseline_person_24"
+        android:onClick="openprofile"
+        android:text="Profil"
+        android:translationY="0dp" />
+
+    <Button
+        android:id="@+id/certifications"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/lightblue"
+        android:drawableLeft="@drawable/baseline_double_arrow_24"
+        android:onClick="opencert"
+        android:text="Certifications"
+        android:translationY="20dp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="Log out"
+        android:translationY="100dp" />
+
+</LinearLayout>

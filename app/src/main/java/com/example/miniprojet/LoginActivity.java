@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                         String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
 
                         // Start the certifications activity with user information
-                        Intent intent = new Intent(LoginActivity.this, certifications.class);
+                        Intent intent = new Intent(LoginActivity.this, nav.class);
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("username", usernameFromDB);

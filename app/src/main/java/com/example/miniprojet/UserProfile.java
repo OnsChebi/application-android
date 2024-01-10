@@ -49,10 +49,10 @@ public class UserProfile extends AppCompatActivity {
     // Method to retrieve and display user data passed from the previous activity
     public void showAllUserData() {
         Intent intent = getIntent();
-        String nameUser = intent.getStringExtra("name");
-        String emailUser = intent.getStringExtra("email");
-        String usernameUser = intent.getStringExtra("username");
-        String passwordUser = intent.getStringExtra("password");
+        String nameUser = intent.getStringExtra("name1");
+        String emailUser = intent.getStringExtra("email1");
+        String usernameUser = intent.getStringExtra("username1");
+        String passwordUser = intent.getStringExtra("password1");
 
         // Set user data to respective TextViews for display
         titleName.setText(nameUser);

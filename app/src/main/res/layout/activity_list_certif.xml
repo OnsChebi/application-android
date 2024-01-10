@@ -17,7 +17,7 @@
             android:layout_height="58dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/coda_extrabold"
+            android:fontFamily="@font/archivo_black"
             android:text="Choose your interest"
             android:textColor="@color/lilac"
             android:textSize="25dp" />
@@ -25,20 +25,20 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="561dp"
+            android:layout_height="509dp"
             android:layout_marginBottom="20dp"
             android:scrollbarSize="40dp" />
 
+        <!-- ImageView to display the selected image -->
         <Button
             android:id="@+id/addCertificationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Add Certification"
-            android:onClick="onAddCertificationButtonClick" />
+            android:onClick="onAddCertificationButtonClick"
+            android:text="Add Certification" />
 
-        <!-- ImageView to display the selected image -->
         <ImageView
             android:id="@+id/selectedImageView"
             android:layout_width="match_parent"

@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lilac">#5677D1</color>
     <color name="grey">#A4A4A6</color>
+    <color name="lightblue">#1ca3ec</color>
+    <color name="rouge">#A94064</color>
+    <color name="purple">#663399</color>
+
 </resources>
